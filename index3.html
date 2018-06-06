@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue & Axios2</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="master.css">
+</head>
+<body>
+
+  <div id="app">
+    <img class="pokemon-image"></img>
+    <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="">
+  </div>
+
+  <script type="text/javascript">
+
+  var vm = new Vue({
+  	el: '#app',
+  	data: {
+  		status: ''
+  	},
+    created: function () {
+      this.loadQuote();
+    },
+  	methods: {
+      var myPic = document.querySelector(".pokemon-image");
+      loadQuote: function() {
+        this.status = 'Loading...';
+        var vm = this;
+        axios.get('https://rickandmortyapi.com/api/character/183')
+        .then(function (response) {
+            myPic.src = response.data['image'];
+        })
+        .catch((err) => {
+          myPic.src = '';
+        })
+      }
+  	}
+  });
+
+  </script>
+
+</body>
+</html>
