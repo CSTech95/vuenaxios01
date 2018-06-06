@@ -5,12 +5,14 @@
   <title>lrn8</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="master.css">
 </head>
 <body>
 
   <div id="app">
   <div v-for="x in info" class="container">
     <!-- {{info}} -->
+    <h1>{{x.id}}</h1>
     <h1>{{x.name}}</h1>
     <h1>{{x.gender}}</h1>
     <img :src="x.image" >
